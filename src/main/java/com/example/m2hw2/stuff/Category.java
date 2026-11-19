@@ -1,28 +1,22 @@
 package com.example.m2hw2.stuff;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Data; // Requires Lombok plugin
 
+@Data
 @Entity
 @Table(name = "categories")
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 public class Category {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Column(name = "icon", length = 255)
+    @Column(length = 255)
     private String icon;
 
-    @Column(name = "is_deleted", nullable = false)
-    private Boolean isDeleted;
+    @Column(nullable = false)
+    private Boolean isDeleted = false;
 
-    @Column(name = "name", nullable = false, length = 50)
+    @Column(nullable = false, length = 50)
     private String name;
 }

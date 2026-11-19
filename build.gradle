@@ -20,14 +20,21 @@ repositories {
 }
 
 dependencies {
+    // Spring Boot Starter Web
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // Spring Boot Starter Data JPA (for JPA, Hibernate, EntityManager)
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    // MySQL Connector (MySQL JDBC driver)
+    runtimeOnly 'com.mysql:mysql-connector-j'
+
+    // Lombok (for @Data annotations on entities)
     compileOnly 'org.projectlombok:lombok'
-    runtimeOnly 'org.postgresql:postgresql'
     annotationProcessor 'org.projectlombok:lombok'
-    testImplementation 'org.springframework.boot:spring-boot-starter-data-jpa-test'
-    testCompileOnly 'org.projectlombok:lombok'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-    testAnnotationProcessor 'org.projectlombok:lombok'
+
+    // Test dependencies
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 tasks.named('test') {
